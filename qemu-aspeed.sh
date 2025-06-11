@@ -3,6 +3,7 @@
 MACHINE="2700"
 WEBPORT="4443"
 SSHPORT="2223"
+SOLPORT="2200"
 IMGDIR="ast2700-default"
 
 print_usage() {
@@ -73,7 +74,9 @@ check_qemu
      -nographic \
      -drive file=${IMGDIR},format=raw,if=mtd \
      -net nic,macaddr=F8:63:3F:66:95:11 \
-     -net nic -net user,hostfwd=:0.0.0.0:${WEBPORT}-:443,hostfwd=:0.0.0.0:${SSHPORT}-:22,hostname=qemu
+     -net nic -net user,hostfwd=:0.0.0.0:${WEBPORT}-:443,hostfwd=:0.0.0.0:${SSHPORT}-:22,hostfwd=:0.0.0.0:${SOLPORT}-:2200,hostname=qemu \
+     -serial mon:stdio \
+     -serial telnet:localhost:5067,server,nowait
 }
 
 while [[ $# -gt 0 ]]; do
