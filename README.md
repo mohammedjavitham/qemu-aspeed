@@ -7,7 +7,7 @@
 
 # For AST2600EVB
 4. cp <openbmc_workspace>/<build_dir>/evb-ast2600/tmp/deploy/images/evb-ast2600/image-bmc .
-5. ./qemu-aspeed.sh -i image-bmc -m 2600
-6. Web UI access -> localhost:443
+5. ./qemu-aspeed.sh -i image-bmc -m 2600 -w 1234
+6. Web UI access -> localhost1234
 7. Press Ctrl + a then x to terminate QEMU session
 ```
